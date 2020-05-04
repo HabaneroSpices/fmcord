@@ -1,4 +1,4 @@
-# fmcord `1.0.0`
+# fmcord `1.0.1`
 **Display your current Last.FM song on Discord using the RPC API:**
 ![N|Solid](https://i.imgur.com/MXj59IH.png)
 
