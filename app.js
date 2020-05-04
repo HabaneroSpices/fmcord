@@ -47,6 +47,13 @@ trackStream.on('nowPlaying', song => {
   log.info(`Updated song to: ${song.artist["#text"]} - ${song.name}`);
 });
 
+trackStream.on('stoppedPlaying', song => {
+  if(!song) return;
+  rpc.clearActivity();
+  log.info(`Stopped playing song: ${song.artist["#text"]} - ${song.name}`);
+});
+
+
 rpc.on('ready', () => {
   log(`Connected to Discord! (${clientId})`);
   trackStream.start();
