@@ -34,6 +34,7 @@ if(!lastFmUsername) {
 const trackStream = lastFm.stream(lastFmUsername);
 
 trackStream.on('nowPlaying', song => {
+  if(!song) return;
   rpc.setActivity({
     details: `🎵  ${song.name}`,
     state: `👤  ${song.artist["#text"]}`,
