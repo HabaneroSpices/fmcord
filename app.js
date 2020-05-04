@@ -9,8 +9,8 @@ if(fs.existsSync('keys.json')) {
 }
 
 if(!fs.existsSync('config.json')) {
-  fs.copyFileSync('config.example.json', 'config.json')
-  log.info('Created config.json. Please enter your username in the value of `lastFmUsername`.');
+  fs.copyFileSync('config.json.example', 'config.json')
+  setTimeout(log.info('Created config.json. Please enter your username in the value of `lastFmUsername`.'), 3000);
   return;
 }
 
@@ -27,8 +27,8 @@ const rpc = new DiscordRPC.Client({ transport }),
       lastFm = new LastFmNode({ api_key: lastFmKey, useragent: 'fmcord v1.0.0' });
 
 if(!lastFmUsername) {
-  log.error("Your last.fm username isn't set! Please set it in your config.json file.");
-  process.exit(1);
+  setTimeout(log.error("Your last.fm username isn't set! Please set it in your config.json file."), 3000);
+  return;
 }
 
 const trackStream = lastFm.stream(lastFmUsername);
